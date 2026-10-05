@@ -1,0 +1,31 @@
+id;iniciada_en;finalizada_en;estado;paso_actual;motivo_falla;notas;runbook_id;incidente_id
+1;2023-12-04T08:17:55;2023-12-04T21:29:35;EN_CURSO;32553;which;embossing;1;1
+2;2023-12-04T16:16:47;2023-12-04T11:31:21;FALLIDA;7237;yeast heartfelt fast;so;2;2
+3;2023-12-04T10:00:21;2023-12-04T15:46:56;EN_CURSO;22947;guide micromanage;into;3;3
+4;2023-12-04T13:54:14;2023-12-04T01:37:27;FALLIDA;19954;wonderfully;er innovation which;4;4
+5;2023-12-04T05:57:35;2023-12-04T14:16:44;FALLIDA;30502;queasily comparison;lovely expatiate sensitize;5;5
+6;2023-12-04T11:39:04;2023-12-04T02:18:14;CANCELADA;7900;cake;far beneath;6;6
+7;2023-12-04T18:53:20;2023-12-03T23:15:06;FALLIDA;5533;meanwhile;doting dramatic;7;7
+8;2023-12-04T02:38:10;2023-12-04T05:09:08;EN_CURSO;3464;notwithstanding;give understanding;8;8
+9;2023-12-03T23:58:05;2023-12-04T16:07:13;EN_CURSO;10229;properly;before till oh;9;9
+10;2023-12-04T03:07:41;2023-12-03T23:34:51;COMPLETADA;24981;always print innocently;woot;10;10
+11;2023-12-04T16:32:43;2023-12-04T07:31:10;CANCELADA;31178;owlishly provided obedience;under amongst;11;11
+12;2023-12-04T16:59:03;2023-12-04T15:53:30;EN_CURSO;24988;smog hotfoot coordination;topsail drat daintily;12;12
+13;2023-12-04T11:38:13;2023-12-04T20:19:00;FALLIDA;5118;consequently;wriggler whistle zowie;13;13
+14;2023-12-04T21:04:50;2023-12-03T22:59:46;CANCELADA;19329;consequently electric;cute;14;14
+15;2023-12-04T10:19:47;2023-12-04T14:21:54;EN_CURSO;3107;cheerfully;deficient;15;15
+16;2023-12-04T08:34:33;2023-12-03T23:50:02;CANCELADA;16368;dead surprisingly;favorite lightly;16;16
+17;2023-12-04T15:29:47;2023-12-04T10:56:05;EN_CURSO;12866;knowingly contrail;who save without;17;17
+18;2023-12-04T18:03:40;2023-12-04T00:41:36;EN_CURSO;24528;whoa;absolve display;18;18
+19;2023-12-04T11:04:36;2023-12-04T15:12:43;EN_CURSO;26538;than;anti downright;19;19
+20;2023-12-04T15:53:15;2023-12-04T08:34:17;EN_CURSO;3332;cafe broadside riser;failing;20;20
+21;2023-12-04T13:40:05;2023-12-04T02:48:36;EN_CURSO;7447;versus;out;21;21
+22;2023-12-04T09:42:16;2023-12-04T03:12:14;CANCELADA;9811;blah;assist aha restfully;22;22
+23;2023-12-04T00:24:49;2023-12-04T11:10:12;EN_CURSO;14850;likewise pointed;cafe frantically;23;23
+24;2023-12-04T10:26:27;2023-12-04T17:13:41;FALLIDA;7020;muddy ouch upon;official likewise;24;24
+25;2023-12-04T22:03:19;2023-12-04T04:11:03;EN_CURSO;7631;likewise phooey;satirize ugh;25;25
+26;2023-12-03T23:21:38;2023-12-04T09:46:29;FALLIDA;19395;unfortunately whose diversity;thread obscure;26;26
+27;2023-12-04T09:38:51;2023-12-04T03:03:38;EN_CURSO;10281;hungry into excluding;rudely urban;27;27
+28;2023-12-04T08:28:11;2023-12-04T14:56:54;COMPLETADA;8079;than pitiful disgorge;worth butter;28;28
+29;2023-12-04T06:05:47;2023-12-04T08:42:21;FALLIDA;425;headline;ascribe outside pfft;29;29
+30;2023-12-04T14:14:30;2023-12-04T13:48:13;CANCELADA;2074;pointed swiftly;famously;30;30

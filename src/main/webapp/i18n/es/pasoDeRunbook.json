@@ -1,0 +1,28 @@
+{
+  "oncallApp": {
+    "pasoDeRunbook": {
+      "home": {
+        "title": "Paso De Runbooks",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Paso De Runbook",
+        "createOrEditLabel": "Crear o editar Paso De Runbook",
+        "notFound": "Ningún Paso De Runbooks encontrado"
+      },
+      "created": "Un nuevo Paso De Runbook ha sido creado con el identificador {{ param }}",
+      "updated": "Un Paso De Runbook ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Paso De Runbook ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Paso De Runbook {{ id }}?"
+      },
+      "detail": {
+        "title": "Paso De Runbook"
+      },
+      "id": "ID",
+      "orden": "Orden",
+      "titulo": "Titulo",
+      "instrucciones": "Instrucciones",
+      "obligatorio": "Obligatorio",
+      "runbook": "Runbook"
+    }
+  }
+}

@@ -1,0 +1,173 @@
+<div>
+  <h2 id="page-heading" data-cy="EjecucionDeRunbookHeading">
+    <span jhiTranslate="oncallApp.ejecucionDeRunbook.home.title">Ejecucion De Runbooks</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="oncallApp.ejecucionDeRunbook.home.refreshListLabel">Refrescar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ejecucion-de-runbook"
+        [routerLink]="['/ejecucion-de-runbook/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="oncallApp.ejecucionDeRunbook.home.createLabel">Crear nuevo Ejecucion De Runbook</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (ejecucionDeRunbooks().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="oncallApp.ejecucionDeRunbook.home.notFound">Ningún Ejecucion De Runbooks encontrado</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="iniciadaEn">
+              <div class="d-flex">
+                <span jhiTranslate="oncallApp.ejecucionDeRunbook.iniciadaEn">Iniciada En</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="finalizadaEn">
+              <div class="d-flex">
+                <span jhiTranslate="oncallApp.ejecucionDeRunbook.finalizadaEn">Finalizada En</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="estado">
+              <div class="d-flex">
+                <span jhiTranslate="oncallApp.ejecucionDeRunbook.estado">Estado</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="pasoActual">
+              <div class="d-flex">
+                <span jhiTranslate="oncallApp.ejecucionDeRunbook.pasoActual">Paso Actual</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="motivoFalla">
+              <div class="d-flex">
+                <span jhiTranslate="oncallApp.ejecucionDeRunbook.motivoFalla">Motivo Falla</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="notas">
+              <div class="d-flex">
+                <span jhiTranslate="oncallApp.ejecucionDeRunbook.notas">Notas</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="runbook.nombre">
+              <div class="d-flex">
+                <span jhiTranslate="oncallApp.ejecucionDeRunbook.runbook">Runbook</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="incidente.titulo">
+              <div class="d-flex">
+                <span jhiTranslate="oncallApp.ejecucionDeRunbook.incidente">Incidente</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ejecutor.login">
+              <div class="d-flex">
+                <span jhiTranslate="oncallApp.ejecucionDeRunbook.ejecutor">Ejecutor</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (ejecucionDeRunbook of ejecucionDeRunbooks(); track trackId(ejecucionDeRunbook)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/ejecucion-de-runbook', ejecucionDeRunbook.id, 'view']">{{ ejecucionDeRunbook.id }}</a>
+              </td>
+              <td>{{ ejecucionDeRunbook.iniciadaEn | formatMediumDatetime }}</td>
+              <td>{{ ejecucionDeRunbook.finalizadaEn | formatMediumDatetime }}</td>
+              <td [jhiTranslate]="'oncallApp.EstadoEjecucion.' + (ejecucionDeRunbook.estado ?? 'null')">
+                {{
+                  { null: '', EN_CURSO: 'EN_CURSO', COMPLETADA: 'COMPLETADA', FALLIDA: 'FALLIDA', CANCELADA: 'CANCELADA' }[
+                    ejecucionDeRunbook.estado ?? 'null'
+                  ]
+                }}
+              </td>
+              <td>{{ ejecucionDeRunbook.pasoActual }}</td>
+              <td>{{ ejecucionDeRunbook.motivoFalla }}</td>
+              <td>{{ ejecucionDeRunbook.notas }}</td>
+              <td>
+                @if (ejecucionDeRunbook.runbook) {
+                  <div>
+                    <a [routerLink]="['/runbook', ejecucionDeRunbook.runbook.id, 'view']">{{ ejecucionDeRunbook.runbook.nombre }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (ejecucionDeRunbook.incidente) {
+                  <div>
+                    <a [routerLink]="['/incidente', ejecucionDeRunbook.incidente.id, 'view']">{{ ejecucionDeRunbook.incidente.titulo }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                {{ ejecucionDeRunbook.ejecutor?.login }}
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/ejecucion-de-runbook', ejecucionDeRunbook.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Vista</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/ejecucion-de-runbook', ejecucionDeRunbook.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(ejecucionDeRunbook)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Eliminar</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

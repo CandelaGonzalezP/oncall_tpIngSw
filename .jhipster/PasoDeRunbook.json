@@ -1,0 +1,48 @@
+{
+  "annotations": {
+    "changelogDate": "20231204224723"
+  },
+  "applications": ["oncall"],
+  "documentation": "Un paso del runbook. El orden importa.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "orden",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMax": "50",
+      "fieldValidateRulesMin": "1"
+    },
+    {
+      "fieldName": "titulo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "instrucciones",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "1000"
+    },
+    {
+      "fieldName": "obligatorio",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "PasoDeRunbook",
+  "relationships": [
+    {
+      "otherEntityField": "nombre",
+      "otherEntityName": "runbook",
+      "otherEntityRelationshipName": "paso",
+      "relationshipName": "runbook",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

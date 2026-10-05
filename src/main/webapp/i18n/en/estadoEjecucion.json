@@ -1,0 +1,11 @@
+{
+  "oncallApp": {
+    "EstadoEjecucion": {
+      "null": "",
+      "EN_CURSO": "EN_CURSO",
+      "COMPLETADA": "COMPLETADA",
+      "FALLIDA": "FALLIDA",
+      "CANCELADA": "CANCELADA"
+    }
+  }
+}

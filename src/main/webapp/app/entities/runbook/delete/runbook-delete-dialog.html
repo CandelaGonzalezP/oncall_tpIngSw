@@ -1,0 +1,24 @@
+@if (runbook) {
+  <form name="deleteForm" (ngSubmit)="confirmDelete(runbook.id!)">
+    <div class="modal-header">
+      <h4 class="modal-title" data-cy="runbookDeleteDialogHeading" jhiTranslate="entity.delete.title">Confirmar operación de borrado</h4>
+    </div>
+
+    <div class="modal-body">
+      <jhi-alert-error />
+      <p id="jhi-delete-runbook-heading" jhiTranslate="oncallApp.runbook.delete.question" [translateValues]="{ id: runbook.id }">
+        ¿Seguro que quiere eliminar Runbook {{ runbook.id }}?
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+        <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+      </button>
+
+      <button id="jhi-confirm-delete-runbook" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+        <fa-icon icon="times" />&nbsp;<span jhiTranslate="entity.action.delete">Eliminar</span>
+      </button>
+    </div>
+  </form>
+}

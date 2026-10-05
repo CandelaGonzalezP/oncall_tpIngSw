@@ -1,0 +1,31 @@
+id;nombre;descripcion;origen_alerta;severidad_minima;patron_fingerprint;tiempo_max_minutos;activo
+1;gleefully;duh ouch derby;MANUAL;SEV4;far;1309;false
+2;deck unless;alert motivate hunger;DATADOG;SEV2;blissfully;453;false
+3;punctuation beep;disk cleave;CLOUDWATCH;SEV1;whether;1000;true
+4;before by;meadow smoothly;MANUAL;SEV3;beside;191;false
+5;knowledgeable;councilman platter topsail;MANUAL;SEV1;modulo knowledgeably as;348;true
+6;onto papa gad;flustered;CLOUDWATCH;SEV2;atop;1037;true
+7;aboard;frantically busy;PROMETHEUS;SEV2;till;50;false
+8;forceful bashfully possible;pro;MANUAL;SEV4;sensitize colour quaff;68;false
+9;improbable sternly whose;elliptical;HEALTHCHECK;SEV3;councilman duh and;1150;false
+10;unlike;fail to which;MANUAL;SEV2;after furthermore whoever;1425;false
+11;deeply;mad;CLOUDWATCH;SEV3;lazily;901;false
+12;likewise;cinch but ridge;MANUAL;SEV4;drat;171;false
+13;so moisten;attribute jam-packed;DATADOG;SEV2;boo about yellowish;443;false
+14;eek gee;eminent schnitzel;HEALTHCHECK;SEV2;pulse;1003;false
+15;putrid hype;terribly whereas forecast;PROMETHEUS;SEV4;nightlife;629;true
+16;croon;vein;MANUAL;SEV4;greatly eyeliner;942;false
+17;maintainer violently;repeatedly;CLOUDWATCH;SEV4;hence;697;false
+18;psst;yum porter;HEALTHCHECK;SEV4;rebel joyful;753;false
+19;well-worn;till quaintly summer;DATADOG;SEV3;newsprint upon;1222;false
+20;honorable heartfelt bus;apologise amidst repentant;CLOUDWATCH;SEV2;woot think;1139;true
+21;stack pigsty;passionate arid drat;PROMETHEUS;SEV3;mmm;545;true
+22;and chase;pish notwithstanding;DATADOG;SEV3;than;1151;true
+23;drat cemetery since;unconscious misread;HEALTHCHECK;SEV2;concerning;836;true
+24;colorize explode well-off;regularly airport inasmuch;PROMETHEUS;SEV4;enthusiastically flawless waist;607;true
+25;unfinished;whoever noon helpful;DATADOG;SEV1;arid playfully;47;true
+26;communicate;shrilly;CLOUDWATCH;SEV2;shakily;863;true
+27;ew so;sharply than;DATADOG;SEV2;boggle culture;1169;false
+28;yuck standard;irk natural explode;DATADOG;SEV4;expert;520;false
+29;pessimistic doing jazz;sizzle;PROMETHEUS;SEV4;past criminal;582;false
+30;neaten;reluctantly;MANUAL;SEV4;ick owlishly questionably;982;false

@@ -1,0 +1,32 @@
+{
+  "oncallApp": {
+    "ejecucionDeRunbook": {
+      "home": {
+        "title": "Ejecucion De Runbooks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ejecucion De Runbook",
+        "createOrEditLabel": "Create or edit a Ejecucion De Runbook",
+        "notFound": "No Ejecucion De Runbooks found"
+      },
+      "created": "A new Ejecucion De Runbook is created with identifier {{ param }}",
+      "updated": "A Ejecucion De Runbook is updated with identifier {{ param }}",
+      "deleted": "A Ejecucion De Runbook is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ejecucion De Runbook {{ id }}?"
+      },
+      "detail": {
+        "title": "Ejecucion De Runbook"
+      },
+      "id": "ID",
+      "iniciadaEn": "Iniciada En",
+      "finalizadaEn": "Finalizada En",
+      "estado": "Estado",
+      "pasoActual": "Paso Actual",
+      "motivoFalla": "Motivo Falla",
+      "notas": "Notas",
+      "runbook": "Runbook",
+      "incidente": "Incidente",
+      "ejecutor": "Ejecutor"
+    }
+  }
+}

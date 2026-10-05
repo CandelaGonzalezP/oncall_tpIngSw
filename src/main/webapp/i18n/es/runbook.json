@@ -1,0 +1,33 @@
+{
+  "oncallApp": {
+    "runbook": {
+      "home": {
+        "title": "Runbooks",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Runbook",
+        "createOrEditLabel": "Crear o editar Runbook",
+        "notFound": "Ningún Runbooks encontrado"
+      },
+      "created": "Un nuevo Runbook ha sido creado con el identificador {{ param }}",
+      "updated": "Un Runbook ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Runbook ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Runbook {{ id }}?"
+      },
+      "detail": {
+        "title": "Runbook"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "origenAlerta": "Origen Alerta",
+      "severidadMinima": "Severidad Minima",
+      "patronFingerprint": "Patron Fingerprint",
+      "tiempoMaxMinutos": "Tiempo Max Minutos",
+      "activo": "Activo",
+      "servicio": "Servicio",
+      "paso": "Paso",
+      "ejecucion": "Ejecucion"
+    }
+  }
+}

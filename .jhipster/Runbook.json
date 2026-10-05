@@ -1,0 +1,77 @@
+{
+  "annotations": {
+    "changelogDate": "20231204224623"
+  },
+  "applications": ["oncall"],
+  "documentation": "Procedimiento paso a paso asociado a una condicion de alerta.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "80"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "500"
+    },
+    {
+      "fieldName": "origenAlerta",
+      "fieldType": "OrigenAlerta",
+      "fieldValues": "PROMETHEUS,DATADOG,CLOUDWATCH,HEALTHCHECK,MANUAL"
+    },
+    {
+      "fieldName": "severidadMinima",
+      "fieldType": "Severidad",
+      "fieldValues": "SEV1,SEV2,SEV3,SEV4"
+    },
+    {
+      "fieldName": "patronFingerprint",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "120"
+    },
+    {
+      "fieldName": "tiempoMaxMinutos",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMax": "1440",
+      "fieldValidateRulesMin": "1"
+    },
+    {
+      "fieldName": "activo",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Runbook",
+  "relationships": [
+    {
+      "otherEntityField": "nombre",
+      "otherEntityName": "servicio",
+      "otherEntityRelationshipName": "runbook",
+      "relationshipName": "servicio",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "pasoDeRunbook",
+      "otherEntityRelationshipName": "runbook",
+      "relationshipName": "paso",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "ejecucionDeRunbook",
+      "otherEntityRelationshipName": "runbook",
+      "relationshipName": "ejecucion",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

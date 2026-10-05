@@ -1,0 +1,74 @@
+{
+  "annotations": {
+    "changelogDate": "20231204224823"
+  },
+  "applications": ["oncall"],
+  "documentation": "Registro de una ejecucion del runbook sobre un incidente concreto.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "iniciadaEn",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "finalizadaEn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "EstadoEjecucion",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "EN_CURSO,COMPLETADA,FALLIDA,CANCELADA"
+    },
+    {
+      "fieldName": "pasoActual",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "motivoFalla",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "notas",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1000"
+    }
+  ],
+  "name": "EjecucionDeRunbook",
+  "relationships": [
+    {
+      "otherEntityField": "nombre",
+      "otherEntityName": "runbook",
+      "otherEntityRelationshipName": "ejecucion",
+      "relationshipName": "runbook",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "titulo",
+      "otherEntityName": "incidente",
+      "otherEntityRelationshipName": "ejecucion",
+      "relationshipName": "incidente",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "relationshipName": "ejecutor",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

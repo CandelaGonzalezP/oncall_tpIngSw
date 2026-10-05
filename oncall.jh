@@ -247,6 +247,49 @@ enum EstadoAccion {
 }
 
 // ---------------------------------------------------------------------
+// 5 · RUNBOOKS  ·  que hacer cuando salta una condicion conocida
+// ---------------------------------------------------------------------
+
+/**
+ * Procedimiento paso a paso asociado a una condicion de alerta.
+ */
+entity Runbook {
+  nombre String required maxlength(80)
+  descripcion String maxlength(500)
+  origenAlerta OrigenAlerta
+  severidadMinima Severidad
+  patronFingerprint String maxlength(120)
+  tiempoMaxMinutos Integer min(1) max(1440)
+  activo Boolean required
+}
+
+/**
+ * Un paso del runbook. El orden importa.
+ */
+entity PasoDeRunbook {
+  orden Integer required min(1) max(50)
+  titulo String required maxlength(100)
+  instrucciones String required maxlength(1000)
+  obligatorio Boolean required
+}
+
+/**
+ * Registro de una ejecucion del runbook sobre un incidente concreto.
+ */
+entity EjecucionDeRunbook {
+  iniciadaEn Instant required
+  finalizadaEn Instant
+  estado EstadoEjecucion required
+  pasoActual Integer min(0)
+  motivoFalla String maxlength(255)
+  notas String maxlength(1000)
+}
+
+enum EstadoEjecucion {
+  EN_CURSO, COMPLETADA, FALLIDA, CANCELADA
+}
+
+// ---------------------------------------------------------------------
 // RELACIONES
 // ---------------------------------------------------------------------
 
@@ -291,6 +334,14 @@ relationship ManyToOne {
   PasoEscalamiento{destinatarioDirecto(login)} to User with builtInEntity
   Notificacion{destinatario(login) required} to User with builtInEntity
   AccionCorrectiva{responsable(login)} to User with builtInEntity
+}
+
+relationship ManyToOne {
+  Runbook{servicio(nombre)} to Servicio{runbook}
+  PasoDeRunbook{runbook(nombre) required} to Runbook{paso}
+  EjecucionDeRunbook{runbook(nombre) required} to Runbook{ejecucion}
+  EjecucionDeRunbook{incidente(titulo) required} to Incidente{ejecucion}
+  EjecucionDeRunbook{ejecutor(login)} to User with builtInEntity
 }
 
 // ---------------------------------------------------------------------

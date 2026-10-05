@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (ejecucionDeRunbook(); as ejecucionDeRunbookRef) {
+      <div>
+        <h2 data-cy="ejecucionDeRunbookDetailsHeading">
+          <span jhiTranslate="oncallApp.ejecucionDeRunbook.detail.title">Ejecucion De Runbook</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ ejecucionDeRunbookRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.ejecucionDeRunbook.iniciadaEn">Iniciada En</span></dt>
+          <dd>
+            <span>{{ ejecucionDeRunbookRef.iniciadaEn | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.ejecucionDeRunbook.finalizadaEn">Finalizada En</span></dt>
+          <dd>
+            <span>{{ ejecucionDeRunbookRef.finalizadaEn | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.ejecucionDeRunbook.estado">Estado</span></dt>
+          <dd>
+            <span [jhiTranslate]="'oncallApp.EstadoEjecucion.' + (ejecucionDeRunbookRef.estado ?? 'null')">{{
+              { null: '', EN_CURSO: 'EN_CURSO', COMPLETADA: 'COMPLETADA', FALLIDA: 'FALLIDA', CANCELADA: 'CANCELADA' }[
+                ejecucionDeRunbookRef.estado ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.ejecucionDeRunbook.pasoActual">Paso Actual</span></dt>
+          <dd>
+            <span>{{ ejecucionDeRunbookRef.pasoActual }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.ejecucionDeRunbook.motivoFalla">Motivo Falla</span></dt>
+          <dd>
+            <span>{{ ejecucionDeRunbookRef.motivoFalla }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.ejecucionDeRunbook.notas">Notas</span></dt>
+          <dd>
+            <span>{{ ejecucionDeRunbookRef.notas }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.ejecucionDeRunbook.runbook">Runbook</span></dt>
+          <dd>
+            @if (ejecucionDeRunbook()!.runbook) {
+              <div>
+                <a [routerLink]="['/runbook', ejecucionDeRunbook()!.runbook?.id, 'view']">{{ ejecucionDeRunbookRef.runbook?.nombre }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="oncallApp.ejecucionDeRunbook.incidente">Incidente</span></dt>
+          <dd>
+            @if (ejecucionDeRunbook()!.incidente) {
+              <div>
+                <a [routerLink]="['/incidente', ejecucionDeRunbook()!.incidente?.id, 'view']">{{
+                  ejecucionDeRunbookRef.incidente?.titulo
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="oncallApp.ejecucionDeRunbook.ejecutor">Ejecutor</span></dt>
+          <dd>
+            <span>{{ ejecucionDeRunbookRef.ejecutor?.login }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+        </button>
+
+        <button type="button" [routerLink]="['/ejecucion-de-runbook', ejecucionDeRunbookRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

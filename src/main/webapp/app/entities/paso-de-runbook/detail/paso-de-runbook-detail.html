@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (pasoDeRunbook(); as pasoDeRunbookRef) {
+      <div>
+        <h2 data-cy="pasoDeRunbookDetailsHeading"><span jhiTranslate="oncallApp.pasoDeRunbook.detail.title">Paso De Runbook</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ pasoDeRunbookRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.pasoDeRunbook.orden">Orden</span></dt>
+          <dd>
+            <span>{{ pasoDeRunbookRef.orden }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.pasoDeRunbook.titulo">Titulo</span></dt>
+          <dd>
+            <span>{{ pasoDeRunbookRef.titulo }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.pasoDeRunbook.instrucciones">Instrucciones</span></dt>
+          <dd>
+            <span>{{ pasoDeRunbookRef.instrucciones }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.pasoDeRunbook.obligatorio">Obligatorio</span></dt>
+          <dd>
+            <span>{{ pasoDeRunbookRef.obligatorio }}</span>
+          </dd>
+          <dt><span jhiTranslate="oncallApp.pasoDeRunbook.runbook">Runbook</span></dt>
+          <dd>
+            @if (pasoDeRunbook()!.runbook) {
+              <div>
+                <a [routerLink]="['/runbook', pasoDeRunbook()!.runbook?.id, 'view']">{{ pasoDeRunbookRef.runbook?.nombre }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+        </button>
+
+        <button type="button" [routerLink]="['/paso-de-runbook', pasoDeRunbookRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
